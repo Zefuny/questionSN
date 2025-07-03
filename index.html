@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>SongNgan</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #ECD8F2;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h2 {
+      color: #ff5ca4;
+      font-size: 2rem;
+      margin-top: 60px;
+      margin-bottom: 100px; /* tạo khoảng cách đủ xa với nút */
+      z-index: 1;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 40px;
+      position: relative;
+      z-index: 0;
+    }
+
+    button {
+      padding: 12px 36px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yes {
+      background-color: #81D4FA;
+      color: white;
+    }
+
+    #no {
+      background-color: #F06292;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Do you hate me?</h2>
+    <div class="buttons">
+      <button id="yes">YES</button>
+      <button id="no">NO</button>
+    </div>
+  </div>
+
+  <script>
+    let yesBtn = document.getElementById('yes');
+    let noBtn = document.getElementById('no');
+    let yesSize = 1;
+    let noSize = 1;
+
+    yesBtn.addEventListener('click', () => {
+      yesSize *= 0.8;
+      yesBtn.style.transform = `scale(${yesSize})`;
+
+      if (yesSize < 0.2) {
+        yesBtn.style.display = 'none';
+      }
+
+      noSize *= 1.2;
+      noBtn.style.transform = `scale(${noSize})`;
+    });
+
+    noBtn.addEventListener('click', () => {
+      window.location.href = "heart.html"; // Đổi theo file bạn đã tạo trái tim
+    });
+  </script>
+</body>
+
+</html>
